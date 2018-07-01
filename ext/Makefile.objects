@@ -1,0 +1,26 @@
+
+# objects for EXT onyx
+
+$(BUILD_DIR)\onyx\ext\onyx.obj: C:\onyx\ext\onyx.c
+	$(CC) $(CFLAGS_ONYX_OBJ) $(CFLAGS) /Fo$(BUILD_DIR)\onyx\ext\ $(CFLAGS_BD_ONYX_EXT) /c C:\onyx\ext\onyx.c 
+
+$(BUILD_DIR)\php_onyx.dll.res: $(PHP_DIR)\build\template.rc
+	$(RC) /nologo  $(BASE_INCLUDES) /I $(PHP_DIR)/include /n /fo $(BUILD_DIR)\php_onyx.dll.res /d FILE_DESCRIPTION="\"php_onyx.dll\"" /d FILE_NAME="\"php_onyx.dll\"" /d URL="\"http://www.php.net\"" /d INTERNAL_NAME="\"ONYX extension\"" /d THANKS_GUYS="\"\"" $(PHP_DIR)\build\template.rc
+
+$(BUILD_DIR)\php_onyx.dll.manifest: c:\phpdevpack\build\default.manifest
+	@copy c:\phpdevpack\build\default.manifest $(BUILD_DIR)\php_onyx.dll.manifest >nul
+$(BUILD_DIR)\php_onyx.lib: $(BUILD_DIR)\php_onyx.dll
+
+$(BUILD_DIR)\php_onyx.dll: $(DEPS_ONYX) $(ONYX_GLOBAL_OBJS) $(PHPLIB) $(BUILD_DIR)\php_onyx.dll.res $(BUILD_DIR)\php_onyx.dll.manifest
+	@"$(LINK)" $(ONYX_GLOBAL_OBJS_RESP) $(PHPLIB) $(LIBS_ONYX) $(LIBS) $(BUILD_DIR)\php_onyx.dll.res /out:$(BUILD_DIR)\php_onyx.dll $(DLL_LDFLAGS) $(LDFLAGS) $(LDFLAGS_ONYX)
+	-@$(_VC_MANIFEST_EMBED_DLL)
+
+php_onyx.dll: $(BUILD_DIR)\php_onyx.dll
+	@echo EXT onyx build complete
+
+$(BUILD_DIR)\onyx\ext\kernel\array.obj $(BUILD_DIR)\onyx\ext\kernel\backtrace.obj $(BUILD_DIR)\onyx\ext\kernel\concat.obj $(BUILD_DIR)\onyx\ext\kernel\debug.obj $(BUILD_DIR)\onyx\ext\kernel\exception.obj $(BUILD_DIR)\onyx\ext\kernel\exit.obj $(BUILD_DIR)\onyx\ext\kernel\fcall.obj $(BUILD_DIR)\onyx\ext\kernel\file.obj $(BUILD_DIR)\onyx\ext\kernel\filter.obj $(BUILD_DIR)\onyx\ext\kernel\iterator.obj $(BUILD_DIR)\onyx\ext\kernel\main.obj $(BUILD_DIR)\onyx\ext\kernel\math.obj $(BUILD_DIR)\onyx\ext\kernel\memory.obj $(BUILD_DIR)\onyx\ext\kernel\object.obj $(BUILD_DIR)\onyx\ext\kernel\operators.obj $(BUILD_DIR)\onyx\ext\kernel\require.obj $(BUILD_DIR)\onyx\ext\kernel\string.obj $(BUILD_DIR)\onyx\ext\kernel\time.obj $(BUILD_DIR)\onyx\ext\kernel\variables.obj: C:\onyx\ext\kernel\array.c C:\onyx\ext\kernel\backtrace.c C:\onyx\ext\kernel\concat.c C:\onyx\ext\kernel\debug.c C:\onyx\ext\kernel\exception.c C:\onyx\ext\kernel\exit.c C:\onyx\ext\kernel\fcall.c C:\onyx\ext\kernel\file.c C:\onyx\ext\kernel\filter.c C:\onyx\ext\kernel\iterator.c C:\onyx\ext\kernel\main.c C:\onyx\ext\kernel\math.c C:\onyx\ext\kernel\memory.c C:\onyx\ext\kernel\object.c C:\onyx\ext\kernel\operators.c C:\onyx\ext\kernel\require.c C:\onyx\ext\kernel\string.c C:\onyx\ext\kernel\time.c C:\onyx\ext\kernel\variables.c
+	$(CC) $(CFLAGS_ONYX_OBJ) $(CFLAGS) /Fo$(BUILD_DIR)\onyx\ext\kernel\ $(CFLAGS_BD_ONYX_EXT_KERNEL) /c C:\onyx\ext\kernel\array.c C:\onyx\ext\kernel\backtrace.c C:\onyx\ext\kernel\concat.c C:\onyx\ext\kernel\debug.c C:\onyx\ext\kernel\exception.c C:\onyx\ext\kernel\exit.c C:\onyx\ext\kernel\fcall.c C:\onyx\ext\kernel\file.c C:\onyx\ext\kernel\filter.c C:\onyx\ext\kernel\iterator.c C:\onyx\ext\kernel\main.c C:\onyx\ext\kernel\math.c C:\onyx\ext\kernel\memory.c C:\onyx\ext\kernel\object.c C:\onyx\ext\kernel\operators.c C:\onyx\ext\kernel\require.c C:\onyx\ext\kernel\string.c C:\onyx\ext\kernel\time.c C:\onyx\ext\kernel\variables.c 
+$(BUILD_DIR)\onyx\ext\onyx\utils.obj: C:\onyx\ext\onyx\utils.c
+	$(CC) $(CFLAGS_ONYX_OBJ) $(CFLAGS) /Fo$(BUILD_DIR)\onyx\ext\onyx\ $(CFLAGS_BD_ONYX_EXT_ONYX) /c C:\onyx\ext\onyx\utils.c 
+$(BUILD_DIR)\onyx\ext\onyx\url.zep.obj: C:\onyx\ext\onyx\url.zep.c
+	$(CC) $(CFLAGS_ONYX_OBJ) $(CFLAGS) /Fo$(BUILD_DIR)\onyx\ext\onyx\ $(CFLAGS_BD_ONYX_EXT_ONYX) /c C:\onyx\ext\onyx\url.zep.c 

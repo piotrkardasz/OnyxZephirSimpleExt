@@ -1,0 +1,7 @@
+	"cl.exe" /FI main/config.pickle.h /D COMPILE_DL_ONYX /D ONYX_EXPORTS=1 -IC:\onyx\ext /D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL /nologo /I c:\phpdevpack/include /I c:\phpdevpack/include/main /I c:\phpdevpack/include/Zend /I c:\phpdevpack/include/TSRM /I c:\phpdevpack/include/ext /D _WINDOWS /D ZEND_WIN32=1 /D PHP_WIN32=1 /D WIN32 /D _MBCS /W3 /FD /wd4996 /guard:cf /Zc:inline /MP /LD /MD /W3 /Ox /D NDebug /D NDEBUG /D ZEND_WIN32_FORCE_INLINE /GF /D ZEND_DEBUG=0 /I "C:\onyx\ext\no\include" /D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL /FoC:\onyx\ext\x64\Release\onyx\ext\onyx\ /FpC:\onyx\ext\x64\Release\onyx\ext\onyx\ /FRC:\onyx\ext\x64\Release\onyx\ext\onyx\ /FdC:\onyx\ext\x64\Release\onyx\ext\onyx\ /c C:\onyx\ext\onyx\url.zep.c
+url.zep.c
+	rc /nologo  /I c:\phpdevpack/include /I c:\phpdevpack/include/main /I c:\phpdevpack/include/Zend /I c:\phpdevpack/include/TSRM /I c:\phpdevpack/include/ext /I c:\phpdevpack/include /n /fo C:\onyx\ext\x64\Release\php_onyx.dll.res /d FILE_DESCRIPTION="\"php_onyx.dll\"" /d FILE_NAME="\"php_onyx.dll\"" /d URL="\"http://www.php.net\"" /d INTERNAL_NAME="\"ONYX extension\"" /d THANKS_GUYS="\"\"" c:\phpdevpack\build\template.rc
+   Creating library C:\onyx\ext\x64\Release\php_onyx.lib and object C:\onyx\ext\x64\Release\php_onyx.exp
+Generating code
+Finished generating code
+EXT onyx build complete
